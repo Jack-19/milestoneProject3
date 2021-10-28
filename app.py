@@ -17,11 +17,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
-@app.route("/get_tasks")
 def get_meals():
-    tasks = mongo.db.meal-type.find()
-    return render_template("index.html", tasks=tasks)
+    return render_template("index.html")
+
+
+get_meals()
 
 
 
