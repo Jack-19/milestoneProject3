@@ -16,7 +16,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+app = Flask(__name__,template_folder = 'templates')
 
+@app.route("/")
 def get_meals():
     return render_template("index.html")
 
