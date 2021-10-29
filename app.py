@@ -17,10 +17,14 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def get_meals():
-    recipes = list(mongo.db.recipes.find({"meal-type": "dinner"}))
-    return render_template("index.html", recipes=recipes)
-
+def get_breakfast():
+    breakfast = list(mongo.db.breakfast.find({"type": "breakfast"}))
+    print(breakfast)
+    lunch = list(mongo.db.lunch.find({"type": "lunch"}))
+    print(lunch)
+    dinner = list(mongo.db.dinner.find({"type": "dinner"}))
+    print(dinner)
+    return render_template("index.html", breakfast=breakfast)
     
 if __name__ == "__main":
     app.run(host=os.environ.get("IP"),
